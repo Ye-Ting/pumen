@@ -1,0 +1,9 @@
+
+.idea/
+._*
+www/data/upload/
+oranger.sublime-project
+oranger.sublime-workspace
+tmp/
+system/tmp/
+

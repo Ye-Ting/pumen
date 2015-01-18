@@ -1,0 +1,30 @@
+---
+name: 蝉知全站搜索
+code: search
+type: extension
+copyright: >
+  青岛易软天创网络科技有限公司
+  2011
+site: http://www.chanzhi.org
+author: 'Xiying guan<guanxiying@xirangit.com>'
+abstract: 蝉知全站搜索插件
+desc: >
+  这个插件提供整站文章、产品、博客、单页、帖子的搜索功能
+install: |
+  1. 通过蝉知的插件管理来进行安装。
+    1.1 使用管理员身份登录蝉知，访问插件管理。
+    1.2 打开获得插件页面，搜索找到本插件。
+    1.3 选择自动安装，按照页面提示即可。
+  2. 手工安装，将代码解压缩，然后将目录拷贝到蝉知对应的目录，比如system拷贝到chanzhi的system。
+releases:
+  1.0:
+    chanzhi:
+      compatible: all
+      incompatible:
+    charge: free
+    date: 2014-12-25
+    conflicts: null
+    depends: null
+    license: >
+      http://api.chanzhi.org/goto.php?item=license
+    changelog: 首次发布

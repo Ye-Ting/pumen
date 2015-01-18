@@ -1,0 +1,22 @@
+.pager {margin: 0}
+.mgb-0{margin-bottom:0; border-bottom:none; border-radius:3px 3px 0 0;}
+.mgb-0 .panel-heading{margin-bottom:0; border-bottom:none; border-radius:3px 3px 0 0;}
+ 
+.comment {display: table; border: 1px solid #ddd; border-radius: 3px; transition: all .5s cubic-bezier(.175,.885,.32,1); box-shadow: 0 1px 2px rgba(0,0,0,.075); margin-bottom: 10px; padding: 0; max-width:100%;}
+.comment:before {display: none}
+.comment.first{ border-radius: 0 0 3px 3px;}
+.comment-id, .comment-content {display: table-cell; padding: 8px;}
+.comment-id.success{background:#e5ffe6;}
+.comment-id {vertical-align: middle; font-size: 12px; font-weight: 400; color: #888; text-align: center; background: #f1f1f1; border-right: 1px solid #ddd; width: 60px;}
+.reply > .reply-content:first-child {padding-top: 2px; margin-top: 5px;}
+
+.comment table.table{margin-bottom:0; max-width:100%; word-wrap:break-word;}
+.comment table.table tr{border-top: 1px solid #ddd;}
+.comment table.table tr:first-child{border-top:0;}
+th.th-from{text-align:center; padding-right:0;width:100px;border-right:solid 1px #f1f1f1;vertical-align:middle;}
+td.td-action{width:50px;}
+td.td-content{word-wrap: break-word; word-break:break-all;}
+.time{font-size:10px; font-weight:normal;color:inherit;}
+table tr.reply .th-from{font-weight:normal}
+
+.signed-user-info {display: inline-block; padding-top: 6px; vertical-align: middle; margin-right: 8px;}
