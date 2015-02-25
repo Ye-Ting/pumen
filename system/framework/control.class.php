@@ -418,10 +418,16 @@ class control
         }
 
         $commonExtJsFiles = glob($jsExtPath['common'] . $methodName . DS . '*.js');
-        foreach($commonExtJsFiles as $jsFile) $js .= file_get_contents($jsFile);
+        if(!empty($commonExtJsFiles))
+        {
+            foreach($commonExtJsFiles as $jsFile) $js .= file_get_contents($jsFile);
+        }
 
         $methodExtJsFiles = glob($jsExtPath['site'] . $methodName . DS  . '*.js');
-        foreach($methodExtJsFiles as $jsFile) $js .= file_get_contents($jsFile);
+        if(!empty($methodExtJsFiles))
+        {
+            foreach($methodExtJsFiles as $jsFile) $js .= file_get_contents($jsFile);
+        }
 
         return $js;
     }

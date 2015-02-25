@@ -2,8 +2,8 @@
 /**
  * The category front view file of block module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Yidong wang <yidong@cnezsoft.com>
  * @package     block
  * @version     $Id$
@@ -36,6 +36,7 @@ $browseLink     = $type == 'article' ? 'createBrowseLink' : 'create' . ucfirst($
       foreach($topCategories as $topCategory)
       {
           $browseLink = helper::createLink($type, 'browse', "categoryID={$topCategory->id}", "category={$topCategory->alias}");
+          if($type == 'blog') $browseLink = helper::createLink('blog', 'index', "categoryID={$topCategory->id}", "category={$topCategory->alias}");
           echo '<li>' . html::a($browseLink, "<i class='icon-folder-close-alt '></i> &nbsp;" . $topCategory->name, "id='category{$topCategory->id}'") . '</li>';
       }
       ?>

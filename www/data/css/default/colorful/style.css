@@ -1161,9 +1161,6 @@ a.tag-link {
 #headNav nav > a:last-child:after {
   display: none;
 }
-#searchbar {
-  right: 15px;
-}
 #msgBox .label.label-badge {
   font-weight: bold;
   background-color: #fff;
@@ -1535,6 +1532,10 @@ a.tag-link {
   .carousel-inner>.item>img,
   .carousel-inner>.item>a>img {
     min-height: 100px;
+  }
+  #footer {
+    text-align: center;
+    padding: 15px;
   }
 }
 #go2top {

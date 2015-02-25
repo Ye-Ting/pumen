@@ -43,9 +43,11 @@ js::execute($article->js);
       <section class='article-content'>
         <?php echo $article->content;?>
       </section>
+      <?php if(!empty($article->files)):?>
       <section class="article-files">
         <?php $this->loadModel('file')->printFiles($article->files);?>
       </section>
+      <?php endif;?>
       <footer>
         <div class='article-moreinfo clearfix'>
           <?php if($article->editor):?> 

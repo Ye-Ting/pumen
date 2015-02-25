@@ -2,8 +2,8 @@
 /**
  * The model file of package module of ChanZhiEPS.
  *
- * @copyright   Copyright 2009-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@xirangit.com>
  * @package     package
  * @version     $Id$
@@ -95,7 +95,7 @@ class packageModel extends model
      */
     public function getModulesByAPI()
     {
-        $requestType = $this->config->requestType;
+        $requestType = helper::safe64Encode($this->config->requestType);
         $webRoot     = helper::safe64Encode($this->config->webRoot);
         $apiURL      = $this->apiRoot . 'apiGetmodules-' . $requestType . '-' . $webRoot . '.json';
 
@@ -370,7 +370,7 @@ class packageModel extends model
      */
     public function processLicense($license)
     {
-        if(strlen($license) > 10) return $license;    // more then 10 letters, not gpl, lgpl, apache, bsd or mit.
+        if(strlen($license) > 10) return $license;    // more then 10 letters, not zpl, gpl, lgpl, apache, bsd or mit.
 
         $licenseFile = dirname(__FILE__) . '/license/' . strtolower($license) . '.txt';
         if(file_exists($licenseFile)) return file_get_contents($licenseFile);
@@ -775,7 +775,7 @@ class packageModel extends model
      */
     public function cleanModelCache()
     {
-        $modelCacheFiles = glob($this->app->getTmpRoot() . 'model/*');
+        $modelCacheFiles = glob($this->app->getTmpRoot() . 'model' . DS . $this->app->siteCode{0} . DS . $this->app->siteCode . DS . '*');
         foreach($modelCacheFiles as $cacheFile) @unlink($cacheFile);
     }
 

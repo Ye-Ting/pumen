@@ -13,5 +13,7 @@ $(document).ready(function()
             }, 2000);
         }
     });
+
+    $.setAjaxLoader('.okFile', '#ajaxModal');
 });
 

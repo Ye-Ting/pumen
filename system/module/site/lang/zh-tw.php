@@ -2,8 +2,8 @@
 /**
  * The site module zh-tw file of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青島息壤網絡信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青島易軟天創網絡科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     site
  * @version     $Id$
@@ -13,6 +13,7 @@ $lang->site->common        = "站點";
 
 $lang->site->type          = '站點類型';
 $lang->site->status        = '站點狀態';
+$lang->site->pauseTip      = '暫停提示';
 $lang->site->name          = '網站名稱';
 $lang->site->module        = '功能模組';
 $lang->site->lang          = '前台語言';
@@ -58,3 +59,4 @@ $lang->site->fileAllowedRole   = '多個尾碼名之間請用 "," 隔開';
 $lang->site->robots            = 'Robots';
 $lang->site->robotsUnwriteable = 'Robots檔案%s 不可寫，請修改權限後設置。';
 $lang->site->reloadForRobots   = '刷新頁面';
+$lang->site->defaultTip        = '站點維護中……';

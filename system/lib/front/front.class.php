@@ -39,7 +39,7 @@ class html
      */
     public static function meta($name, $value)
     {
-        return "<meta name='$name' content='$value'>\n";
+        return "<meta name=\"$name\" content=\"$value\">\n";
     }
 
     /**

@@ -2,9 +2,8 @@
 /**
  * The control file of upgrade module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     upgrade
  * @version     $Id$
@@ -20,7 +19,22 @@ class upgrade extends control
      */
     public function index()
     {
+        if(version_compare($this->config->installedVersion, '4.0', '<')) $this->locate(inlink('upgradeLicense'));
         $this->locate(inlink('backup'));
+    }
+
+    /**
+     * Upgrade license when upgrade to 4.0.
+     * 
+     * @access public
+     * @return void
+     */
+    public function upgradeLicense()
+    {
+        if($this->get->agree) $this->locate(inlink('backup'));
+
+        $this->view->license = file_get_contents($this->app->getBasePath() . '/doc/LICENSE');
+        $this->display();
     }
 
     /**

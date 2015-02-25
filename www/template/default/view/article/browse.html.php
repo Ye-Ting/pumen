@@ -14,7 +14,7 @@ include TPL_ROOT . 'common/treeview.html.php';
       <header><h2><?php echo $category->name;?></h2></header>
       <section class='items items-hover'>
         <?php foreach($articles as $article):?>
-        <?php $url = inlink('view', "id=$article->id", "category={$category->alias}&name=$article->alias");?>
+        <?php $url = inlink('view', "id=$article->id", "category={$article->category->alias}&name=$article->alias");?>
         <div class='item'>
           <div class='item-heading'>
             <div class="text-muted pull-right">

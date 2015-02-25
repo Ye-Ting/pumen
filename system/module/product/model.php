@@ -2,8 +2,8 @@
 /**
  * The model file of product module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Xiying Guan <guanxiying@xirangit.com>
  * @package     product
  * @version     $Id$
@@ -99,11 +99,11 @@ class productModel extends model
             ->from(TABLE_RELATION)->alias('t1')
             ->leftJoin(TABLE_CATEGORY)->alias('t2')->on('t1.category = t2.id')
             ->where('t2.type')->eq('product')
-            ->beginIF($categories)->andWhere('t1.category')->in($categories)->fi()
             ->fetchGroup('product', 'id');
 
         /* Assign categories to it's product. */
         foreach($products as $product) $product->categories = !empty($categories[$product->id]) ? $categories[$product->id] : array();
+        foreach($products as $product) $product->category = current($product->categories);
 
         /* Get images for these products. */
         $images = $this->loadModel('file')->getByObject('product', array_keys($products), $isImage = true);

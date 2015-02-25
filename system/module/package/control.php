@@ -2,8 +2,8 @@
 /**
  * The control file of package module of ChanZhiEPS.
  *
- * @copyright   Copyright 2009-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@xirangit.com>
  * @package     package
  * @version     $Id$
@@ -15,6 +15,7 @@ class package extends control
     {
         parent::__construct();
     }
+
     /**
      * Browse packages.
      *
@@ -31,9 +32,9 @@ class package extends control
             /* Get latest release from remote. */
             $extCodes = helper::safe64Encode(join(',', array_keys($packages)));
             $results = $this->package->getPackagesByAPI('bycode', $extCodes, $recTotal = 0, $recPerPage = 1000, $pageID = 1);
-            if(isset($results->packages))
+            if(isset($results->extensions))
             {
-                $remoteReleases = $results->packages;
+                $remoteReleases = $results->extensions;
                 foreach($remoteReleases as $release)
                 {
                     if(!isset($packages[$release->code])) continue;
@@ -142,15 +143,16 @@ class package extends control
             }
 
             /* Check file exists or not. */
-            if(file_exists($packageFile) and $overridePackage == 'no')
+            if(file_exists($packageFile) and $overridePackage == 'no' and md5_file($packageFile) != $md5)
             {
                 $overrideLink = inlink('install', "package=$package&downLink=$downLink&md5=$md5&type=$type&overridePackage=yes&ignoreCompatible=$ignoreCompatible&overrideFile=$overrideFile&agreeLicense=$agreeLicense&upgrade=$upgrade");
-                $this->view->error = sprintf($this->lang->package->errorPackageFileExists, $packageFile, $installType, $overrideLink);
+                $this->view->error = sprintf($this->lang->package->errorPackageFileExists, $packageFile, $overrideLink, $installType);
                 die($this->display());
             }
 
             /* Download the package file. */
-            $this->package->downloadPackage($package, helper::safe64Decode($downLink));
+            if(!file_exists($packageFile) or ($md5 != '' and md5_file($packageFile) != $md5))  $this->package->downloadPackage($package, helper::safe64Decode($downLink));
+
             if(!file_exists($packageFile))
             {
                 $this->view->error = sprintf($this->lang->package->errorDownloadFailed, $packageFile);
@@ -208,7 +210,7 @@ class package extends control
         if($conflictsResult['result'] == 'fail') 
         {
             $this->view->error = $conflictsResult['error'];
-            $this->display();
+            die($this->display());
         }
 
         /* Check Depends. */
@@ -216,7 +218,7 @@ class package extends control
         if($depentsResult['result'] == 'fail') 
         {
             $this->view->error = $rdepentsResult['error'];
-            $this->display();
+            die($this->display());
         }
 
         /* Check version compatible. */
@@ -246,8 +248,14 @@ class package extends control
         if($agreeLicense == 'no')
         {
             $packageInfo = $this->package->getInfoFromPackage($package);
-            $license       = $this->package->processLicense($packageInfo->license);
-            $agreeLink     = inlink('install', "package=$package&downLink=$downLink&md5=$md5&type=$type&overridePackage=$overridePackage&ignoreCompatible=$ignoreCompatible&overrideFile=$overrideFile&agreeLicense=yes&upgrade=$upgrade");
+            $license     = $this->package->processLicense($packageInfo->license);
+            $agreeLink   = inlink('install', "package=$package&downLink=$downLink&md5=$md5&type=$type&overridePackage=$overridePackage&ignoreCompatible=$ignoreCompatible&overrideFile=$overrideFile&agreeLicense=yes&upgrade=$upgrade");
+
+            /* Format license if used zpl. */
+            if(strtolower($packageInfo->license) == 'zpl')
+            {
+                $license = sprintf($license, $packageInfo->name, $packageInfo->author, $packageInfo->site);
+            }
 
             $this->view->license   = $license;
             $this->view->author    = $packageInfo->author;

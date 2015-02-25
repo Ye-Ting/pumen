@@ -1,0 +1,14 @@
+$(document).ready(function()
+{
+    $('input[name=status]').click(function()
+    {
+        if($('#status2').prop('checked'))
+        {
+            $('.pauseTip').show();
+        }
+        else
+        {
+            $('.pauseTip').hide();
+        }
+    })
+})

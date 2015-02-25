@@ -2,8 +2,8 @@
 /**
  * The latest article front view file of block module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@xirangit.com>
  * @package     block
  * @version     $Id$
@@ -31,8 +31,7 @@ $articles = $this->loadModel('article')->$method(empty($content->category) ? 0 :
     <div class='items'>
     <?php
     foreach($articles as $article):
-    $category = array_shift($article->categories);
-    $url = helper::createLink('article', 'view', "id=$article->id", "category={$category->alias}&name=$article->alias");
+    $url = helper::createLink('article', 'view', "id=$article->id", "category={$article->category->alias}&name=$article->alias");
     ?>
       <div class='item'>
         <div class='item-heading'><strong><?php echo html::a($url, $article->title);?></strong></div>
@@ -63,9 +62,8 @@ $articles = $this->loadModel('article')->$method(empty($content->category) ? 0 :
     <ul class='ul-list'>
       <?php foreach($articles as $article): ?>
       <?php 
-      $category = array_shift($article->categories);
-      $alias    = empty($category) ? "name={$article->alias}" : "category={$category->alias}&name={$article->alias}";
-      $url      = helper::createLink('article', 'view', "id={$article->id}", $alias);
+      $alias = "category={$article->category->alias}&name={$article->alias}";
+      $url   = helper::createLink('article', 'view', "id={$article->id}", $alias);
       ?>
       <?php if(isset($content->time)):?>
       <li>

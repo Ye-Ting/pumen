@@ -21,7 +21,9 @@
       </td>
       <td id='<?php echo $reply->id;?>' class='thread-wrapper'>
         <div class='thread-content article-content'><?php echo $reply->content;?></div>
+        <?php if(!empty($reply->files)):?>
         <div class='article-files'><?php $this->reply->printFiles($reply, $this->thread->canManage($board->id, $reply->author));?></div>
+        <?php endif;?>
       </td>
     </tr>
   </table>

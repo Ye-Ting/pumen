@@ -1,8 +1,8 @@
 /**
 * The css file of chanzhiEPS.
 *
-* @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
-* @license     http://api.chanzhi.org/goto.php?item=license
+* @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+* @license     ZPL (http://zpl.pub/page/zplv11.html)
 * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
 * @package     chanzhiEPS
 * @version     $Id$
@@ -19,7 +19,7 @@ ol {padding-left: 20px;}
 /* width settings. */
 .w-p5  {width: 5%} .w-p10 {width: 10%} .w-p15 {width: 15%} .w-p20 {width: 20%} .w-p25 {width: 25%} .w-p30 {width: 30%} .w-p35 {width: 35%} .w-p40 {width: 40%} .w-p45 {width: 45%} .w-p50 {width: 50%} .w-p55 {width: 55%} .w-p60 {width: 60%} .w-p65 {width: 65%} .w-p70 {width: 70%} .w-p75 {width: 75%} .w-p80 {width: 80%} .w-p85 {width: 85%} .w-p90 {width: 90%} .w-p94 {width: 94%} .w-p95 {width: 95%} .w-p98 {width: 98%} .w-p99 {width: 99%} .w-p100{width: 100%}
 
-.w-10px {width:10px} .w-20px {width:20px} .w-30px {width:30px} .w-35px {width:35px} .w-40px {width:40px} .w-45px {width:45px} .w-50px {width:50px} .w-60px {width:60px} .w-70px {width:70px} .w-80px {width:80px} .w-90px {width:90px} .w-100px {width:100px} .w-110px {width: 110px} .w-120px {width:120px} .w-130px {width:130px} .w-140px {width:140px} .w-150px {width:150px} .w-160px {width:160px} .w-180px {width:180px} .w-200px {width:200px} .w-220px{width:220px} .w-260px{width:260px} .w-300px {width:300px} .w-400px {width:400px} .w-450px {width:450px} .w-500px {width:500px} .w-600px {width:600px} .w-700px {width:700px} .w-800px {width:800px} .w-1000px {width:1000px}
+.w-10px {width:10px} .w-20px {width:20px} .w-30px {width:30px} .w-35px {width:35px} .w-40px {width:40px} .w-45px {width:45px} .w-50px {width:50px} .w-60px {width:60px} .w-70px {width:70px} .w-80px {width:80px} .w-90px {width:90px} .w-100px {width:100px} .w-110px {width: 110px} .w-120px {width:120px} .w-130px {width:130px} .w-140px {width:140px} .w-150px {width:150px} .w-160px {width:160px} .w-180px {width:180px} .w-200px {width:200px} .w-220px{width:220px} .w-260px{width:260px} .w-270px{width: 270px} .w-280px{width: 280px} .w-300px {width:300px} .w-400px {width:400px} .w-450px {width:450px} .w-500px {width:500px} .w-600px {width:600px} .w-700px {width:700px} .w-800px {width:800px} .w-1000px {width:1000px}
 
 .w-id        {width:55px;}
 .w-pri       {width:30px;}

@@ -2,9 +2,7 @@
 <urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
   <?php
   foreach($products as $product):
-  $categories = $product->categories;
-  $category   = current($categories);
-  $url        = str_replace('&', '&amp;', $systemURL . helper::createLink('product', 'view', "id=$product->id", "category={$category->alias}&name=$product->alias"));
+  $url = str_replace('&', '&amp;', $systemURL . helper::createLink('product', 'view', "id=$product->id", "category={$product->category->alias}&name=$product->alias"));
   ?>
   <url>
     <loc><?php echo $url;?></loc>
@@ -15,9 +13,7 @@
   <?php endforeach;?>
   <?php
   foreach($articles as $article):
-  $categories = $article->categories;
-  $category   = current($categories);
-  $url        = str_replace('&', '&amp;', $systemURL . helper::createLink('article', 'view', "id=$article->id", "category={$category->alias}&name=$article->alias"));
+  $url = str_replace('&', '&amp;', $systemURL . helper::createLink('article', 'view', "id=$article->id", "category={$article->category->alias}&name=$article->alias"));
   ?>
   <url>
     <loc><?php echo $url;?></loc>
@@ -29,9 +25,7 @@
   <?php if(commonModel::isAvailable('blog')):?>
   <?php
   foreach($blogs as $blog):
-  $categories = $blog->categories;
-  $category   = current($categories);
-  $url        = str_replace('&', '&amp;', $systemURL . helper::createLink('blog', 'view', "id=$blog->id", "category={$category->alias}&name=$blog->alias"));
+  $url = str_replace('&', '&amp;', $systemURL . helper::createLink('blog', 'view', "id=$blog->id", "category={$blog->category->alias}&name=$blog->alias"));
   ?>
   <url>
     <loc><?php echo $url;?></loc>
@@ -58,7 +52,7 @@
   <?php if(commonModel::isAvailable('forum')):?>
   <?php
   foreach($threads as $id => $editedDate):
-  $url = str_replace('&', '&amp;', $systemURL . helper::createLink('thread', 'view', "id=$id"));
+  $url = str_replace('&', '&amp;', helper::createLink('thread', 'view', "id=$id"));
   ?>
   <url>
     <loc><?php echo $url;?></loc>

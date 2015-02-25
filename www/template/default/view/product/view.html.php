@@ -2,17 +2,17 @@
 /**
  * The view file of product module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@xirangit.com>
  * @package     product
  * @version     $Id$
  * @link        http://www.chanzhi.org
  */
 ?>
-<?php
-include TPL_ROOT . 'common/header.html.php';
-include TPL_ROOT . 'common/treeview.html.php';
+<?php 
+include TPL_ROOT . 'common/header.html.php'; 
+include TPL_ROOT . 'common/treeview.html.php'; 
 
 /* set categoryPath for topNav highlight. */
 js::set('path',  $product->path);
@@ -27,8 +27,6 @@ js::execute($product->js);
   <div class='col-md-9 col-main'>
     <div class='panel panel-body panel-product'>
       <div class='row'>
-
-<!--
         <?php if(!empty($product->image->list)):?>
         <div class='col-md-5'>
           <div class='product-image media-wrapper'>
@@ -48,7 +46,6 @@ js::execute($product->js);
           </div>
           <?php endif;?>
         </div>
--->
         <div class='col-md-7'>
         <?php else:?>
         <div class='col-md-12'>
@@ -112,7 +109,7 @@ js::execute($product->js);
           </div>
         </div>
       </div>
-      <!--<h5 class='header-dividing'><i class='icon-file-text-alt text-muted'></i> <?php echo $lang->product->content;?></h5>-->
+      <h5 class='header-dividing'><i class='icon-file-text-alt text-muted'></i> <?php echo $lang->product->content;?></h5>
       <div class='article-content'>
         <?php echo $product->content;?>
       </div>

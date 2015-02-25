@@ -2,8 +2,8 @@
 /**
  * The common/header file of blog module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Xiying Guan <guanxiying@xirangit.com>
  * @package     blog
  * @version     $Id$
@@ -24,8 +24,9 @@ $navs = $this->tree->getChildren(0, 'blog');
 <html lang="en">
 <?php endif;?>
 <head>
-  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Cache-Control" content="no-transform" />
   <?php
@@ -44,8 +45,17 @@ $navs = $this->tree->getChildren(0, 'blog');
   css::import($jsRoot    . 'jquery/treeview/min.css');
 
   /* Import customed css file if it exists. */
-  $customCssFile = $this->app->getDataRoot() . 'css' . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
-  if(file_exists($customCssFile)) css::import(sprintf($webRoot . 'data/css/%s/%s/style.css?' . $this->config->template->customVersion, $config->template->name, $config->template->theme));
+  $siteCustomCssFile = $this->app->getDataRoot() . 'css' . DS . $this->config->site->code . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
+  if($this->config->multi && file_exists($siteCustomCssFile))
+  {
+      css::import(sprintf($webRoot . 'data/css/%s/%s/%s/style.css?' . $this->config->template->customVersion, $config->site->code, $config->template->name, $config->template->theme));
+  }
+  else
+  {
+      $customCssFile = $this->app->getDataRoot() . 'css' . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
+      if(file_exists($customCssFile)) css::import(sprintf($webRoot . 'data/css/%s/%s/style.css?' . $this->config->template->customVersion, $config->template->name, $config->template->theme));
+       
+  }
 
   js::exportConfigVars();
   if($config->debug)

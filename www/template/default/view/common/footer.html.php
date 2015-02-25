@@ -1,5 +1,5 @@
 <?php if($extView = $this->getExtViewFile(__FILE__)){include $extView; return helper::cd();}?>
-  <?php if(RUN_MODE == 'front') $this->loadModel('block')->printRegion($layouts, 'all', 'bottom');?>
+  <div class='row all-bottom'><div class='col-md-12'><?php $this->loadModel('block')->printRegion($layouts, 'all', 'bottom', false);?></div></div>
   </div></div><?php /* end div.page-content then div.page-wrapper in header.html.php */?>
   <footer id='footer' class='clearfix'>
     <div class='wrapper'>

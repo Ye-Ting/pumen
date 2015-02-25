@@ -2,8 +2,8 @@
 /**
  * The link front view file of block module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@xirangit.com>
  * @package     block
  * @version     $Id$
@@ -11,7 +11,7 @@
 */
 ?>
 <?php if($this->app->getModuleName() != 'links' and !empty($this->config->links->index)):?>
-<div id="block<?php echo $block->id;?>" class='panel'>
+<div id="block<?php echo $block->id;?>" class='panel panel-block <?php echo $blockClass;?>'>
   <div class='panel-heading'>
     <strong><i class='icon'><?php echo $icon;?></i><?php echo $block->title;?></strong>
     <div class='pull-right'>

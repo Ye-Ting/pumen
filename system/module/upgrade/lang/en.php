@@ -2,8 +2,8 @@
 /**
  * The upgrade module English file of ZenTaoPMS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     upgrade
  * @version     $Id: en.php 5119 2013-07-12 08:06:42Z wyd621@gmail.com $
@@ -21,6 +21,7 @@ $lang->upgrade->selectVersion = 'Select version to upgrade from';
 $lang->upgrade->confirm       = 'Confirm the SQL to be excuted.';
 $lang->upgrade->execute       = 'Execute';
 $lang->upgrade->next          = 'Next';
+$lang->upgrade->updateLicense = 'The license of ChanZhi 4.0 has changed to Z PUBLIC LICENSE(ZPL) 1.1.';
 
 $lang->upgrade->backupData = <<<EOT
 <pre>
@@ -54,3 +55,4 @@ $lang->upgrade->fromVersions['3_0']      = '3.0';
 $lang->upgrade->fromVersions['3_0_1']    = '3.0.1';
 $lang->upgrade->fromVersions['3_1']      = '3.1';
 $lang->upgrade->fromVersions['3_2']      = '3.2';
+$lang->upgrade->fromVersions['3_3']      = '3.3';

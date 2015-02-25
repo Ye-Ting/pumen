@@ -53,7 +53,7 @@ $(document).ready(function()
 
     /* set right docker */
     var $dockerBtn = $('#rightDockerBtn');
-    $dockerBtn.popover({container: 'body', html:true, trigger:'manual', id: 'dockerPopover'}).click(function(e)
+    $dockerBtn.popover({container: 'body', html:true, trigger:'manual', tipId: 'dockerPopover'}).click(function(e)
     {
         if($dockerBtn.hasClass('showed')) return;
         $('#rightDocker img[data-src]').each(function()

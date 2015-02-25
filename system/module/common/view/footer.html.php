@@ -13,7 +13,7 @@
       <span id='copyright'>
         <?php
         $copyright = empty($config->site->copyright) ? '' : $config->site->copyright . '-';
-        $contact   = json_decode($config->company->contact);
+        $contact   = json_decode($config->company->contact); 
         $company   = (empty($contact->site) or $contact->site == $this->server->http_host) ? $config->company->name : html::a('http://' . $contact->site, $config->company->name, "target='_blank'");
         echo "&copy; {$copyright}" . date('Y') . ' ' . $company . '&nbsp;&nbsp;';
         ?>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </footer>
-
+   
 <?php
 if($config->debug) js::import($jsRoot . 'jquery/form/min.js');
 if(isset($pageJS)) js::execute($pageJS);

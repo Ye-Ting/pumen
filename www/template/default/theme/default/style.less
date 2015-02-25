@@ -204,12 +204,12 @@
 
     color: @textColor;
     border-color: @border;
-    background-color: @color!important;
+    background-color: @color;
 
     &:hover
     {
-        background-color: lighten(@color, -6%);
-        border-color: lighten(@border, -6% - 4%);
+        background-color: darken(@color, 6%);
+        border-color: darken(@border, 6% + 4%);
     }
     &:focus,
     &:active,
@@ -261,7 +261,7 @@ a:visited
 {
     color: @link-visited-color;
 }
-a:hover, a:visited:hover
+a:hover
 {
     color: @link-hover-color;
     text-decoration: @link-hover-decoration;

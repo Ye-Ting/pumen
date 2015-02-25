@@ -2,8 +2,8 @@
 /**
  * The view file of thread module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     thread
  * @version     $Id$
@@ -12,12 +12,14 @@
 include TPL_ROOT . 'common/header.html.php';
 include TPL_ROOT . 'common/kindeditor.html.php';
 
-$this->block->printRegion($layouts, 'thread_view', 'top');
+echo "<div class='row focus-top' data-default-grid='4'>";
+$this->block->printRegion($layouts, 'thread_view', 'top', true);
+echo "</div>";
 
 $common->printPositionBar($board, $thread);
 
-if($pager->pageID == 1) include './thread.html.php';
-include './reply.html.php';
+if($pager->pageID == 1) include TPL_ROOT . 'thread/thread.html.php';
+include TPL_ROOT . 'thread/reply.html.php';
 
 $this->block->printRegion($layouts, 'thread_view', 'bottom');
 

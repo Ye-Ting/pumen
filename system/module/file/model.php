@@ -2,8 +2,8 @@
 /**
  * The model file of file module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     file
  * @version     $Id$
@@ -244,7 +244,7 @@ class fileModel extends model
     public function canUpload()
     {
        if(RUN_MODE == 'admin') return true;
-       if($this->config->site->allowUpload == 1) return true;
+       if(isset($this->config->site->allowUpload) and $this->config->site->allowUpload == 1) return true;
        if(isset($this->app->user->admin) and $this->app->user->admin == 'super') return true;
        return false;
     }

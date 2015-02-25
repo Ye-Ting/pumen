@@ -2,8 +2,8 @@
 /**
  * The model file of wechat module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@cxirangit.com>
  * @package     wechat
  * @version     $Id$
@@ -363,7 +363,7 @@ class wechatModel extends model
      */
     public function getMenu($public)
     {
-        $menus = $this->dao->select('*')->from(TABLE_CATEGORY)->where('type')->like('wechat_%')->orderBy('`order`')->fetchGroup('parent');
+        $menus = $this->dao->select('*')->from(TABLE_CATEGORY)->where('type')->like("wechat_{$public}%")->orderBy('`order`')->fetchGroup('parent');
         $responseList = $this->dao->select('*')->from(TABLE_WX_RESPONSE)->where('public')->eq($public)->andWhere('`group`')->eq('menu')->fetchAll('key');
         foreach($responseList as $response) $response = $this->processResponse($response);
 

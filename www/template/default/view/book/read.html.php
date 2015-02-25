@@ -1,6 +1,6 @@
 <?php include TPL_ROOT . 'common/header.html.php';?>
 <?php js::set('articleID', $article->id)?>
-<?php $this->block->printRegion($layouts, 'book_read', 'top');?>
+<div class='row focus-top' data-default-grid='4'><?php $this->block->printRegion($layouts, 'book_read', 'top', true);?></div>
 <?php $common->printPositionBar($article->origins);?>
 <div class='article'>
   <header>

@@ -1529,6 +1529,10 @@ a.tag-link {
   .carousel-inner>.item>a>img {
     min-height: 100px;
   }
+  #footer {
+    text-align: center;
+    padding: 15px;
+  }
 }
 #go2top {
   position: fixed;
@@ -1727,44 +1731,6 @@ a:active {
   -o-transition: background 0.5s;
   transition: background 0.5s;
 }
-#searchbar {
-  position: relative;
-  max-width: inherit;
-}
-#searchbar > form {
-  position: absolute;
-  bottom: -43px;
-  right: 8px;
-  z-index: 1001;
-  max-width: 200px;
-}
-#searchbar .form-control {
-  border-radius: 2px 0 0 2px;
-  padding: 3px 8px;
-  height: 28px;
-  border-color: #808080;
-}
-#searchbar .btn {
-  border-radius: 0 2px 2px 0;
-  padding: 3px 8px;
-  height: 28px;
-  border: none;
-}
-@media (max-width: 767px) {
-  #searchbar {
-    position: absolute;
-    left: 15px;
-    top: 3px;
-  }
-  #searchbar > form {
-    position: static;
-  }
-}
-@media (max-width: 480px) {
-  #searchbar {
-    max-width: 90px;
-  }
-}
 #navbar {
   background: #808080;
   border-radius: 2px;
@@ -1942,14 +1908,6 @@ a.btn-primary:visited {
 .btn-primary:active {
   background: #3e4856;
   border-color: #777;
-}
-.btn-default {
-  color: #f1f1f1;
-  background: #2C3E50;
-}
-.btn-default:hover {
-  color: #fff;
-  background: #3e4856;
 }
 .ke-container,
 .form-control {
@@ -2294,11 +2252,7 @@ a {
   color: #3D4DBE;
   text-decoration: none;
 }
-a:visited {
-  color: #3e4856;
-}
-a:hover,
-a:visited:hover {
+a:hover {
   color: #3D4DBE;
   text-decoration: none;
 }

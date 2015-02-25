@@ -8,6 +8,7 @@ $themeRoot = $webRoot . "template/default/theme/";
 <html xmlns:wb="http://open.weibo.com/wb">
 <head profile="http://www.w3.org/2005/10/profile">
   <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Cache-Control"  content="no-transform">
   <meta name="Generator" content="<?php echo 'chanzhi' . $this->config->version . ' www.chanzhi.org'; ?>">
@@ -46,8 +47,17 @@ $themeRoot = $webRoot . "template/default/theme/";
   }
 
   /* Import customed css file if it exists. */
-  $customCssFile = $this->app->getDataRoot() . 'css' . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
-  if(file_exists($customCssFile)) css::import(sprintf($webRoot . 'data/css/%s/%s/style.css?' . $this->config->template->customVersion, $config->template->name, $config->template->theme));
+  $siteCustomCssFile = $this->app->getDataRoot() . 'css' . DS . $config->site->code . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
+  if($config->multi && file_exists($siteCustomCssFile))
+  {
+      css::import(sprintf($webRoot . 'data/css/%s/%s/%s/style.css?' . $this->config->template->customVersion, $config->site->code, $config->template->name, $config->template->theme));
+  }
+  else
+  {
+      $customCssFile = $this->app->getDataRoot() . 'css' . DS . $this->config->template->name . DS . $this->config->template->theme . DS . 'style.css';
+      if(file_exists($customCssFile)) css::import(sprintf($webRoot . 'data/css/%s/%s/style.css?' . $this->config->template->customVersion, $config->template->name, $config->template->theme));
+       
+  }
 
   if(isset($pageCSS)) css::internal($pageCSS);
 

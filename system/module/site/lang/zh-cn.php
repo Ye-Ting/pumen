@@ -2,8 +2,8 @@
 /**
  * The site module zh-cn file of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     site
  * @version     $Id$
@@ -13,6 +13,7 @@ $lang->site->common        = "站点";
 
 $lang->site->type          = '站点类型';
 $lang->site->status        = '站点状态';
+$lang->site->pauseTip      = '暂停提示';
 $lang->site->name          = '网站名称';
 $lang->site->module        = '功能模块';
 $lang->site->lang          = '前台语言';
@@ -58,3 +59,4 @@ $lang->site->fileAllowedRole   = '多个后缀名之间请用 "," 隔开';
 $lang->site->robots            = 'Robots';
 $lang->site->robotsUnwriteable = 'Robots文件%s 不可写，请修改权限后设置。';
 $lang->site->reloadForRobots   = '刷新页面';
+$lang->site->defaultTip        = '站点维护中……';

@@ -2,8 +2,8 @@
 /**
  * The zh-tw language file of install module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青島息壤網絡信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青島易軟天創網絡科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     install
  * @version     $Id$
@@ -18,6 +18,7 @@ $lang->install->error   = '錯誤 ';
 $lang->install->start            = '開始安裝';
 $lang->install->keepInstalling   = '繼續安裝當前版本';
 $lang->install->welcome          = '您睿智地選擇了蟬知企業門戶系統!';
+$lang->install->license          = '授權協議';
 $lang->install->desc             = <<<EOT
 <p>使用蟬知，您可以：</p>
 <blockquote>
@@ -71,6 +72,7 @@ $lang->install->dbPrefix   = '建表使用的首碼';
 $lang->install->createDB   = '自動創建資料庫';
 $lang->install->clearDB    = '清空現有數據';
 
+$lang->install->errorDBName        = "資料庫名不能帶'.'";
 $lang->install->errorConnectDB     = '資料庫連接失敗。 ';
 $lang->install->errorCreateDB      = '資料庫創建失敗。';
 $lang->install->errorDBExists      = '資料庫已經存在，繼續安裝返回上步並選中“清空數據”選項。';

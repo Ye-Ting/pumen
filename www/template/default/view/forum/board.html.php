@@ -1,6 +1,6 @@
 <?php include TPL_ROOT . 'common/header.html.php'; ?>
 <?php include TPL_ROOT . 'common/treeview.html.php'; ?>
-<?php $this->block->printRegion($layouts, 'forum_board', 'top');?>
+<div class='row focus-top' data-default-grid='4'><?php $this->block->printRegion($layouts, 'forum_board', 'top', true);?></div>
 <?php $common->printPositionBar($board);?>
 <div class='panel'>
   <div class='panel-heading'>

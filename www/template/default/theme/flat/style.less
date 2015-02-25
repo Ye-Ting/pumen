@@ -409,7 +409,7 @@ a.tag-link {color: inherit;}
   .m-article-view .breadcrumb > li:last-child {display: none}
 }
 @media (max-width: 620px) {.carousel-caption {top: 10px; padding-top: 0;} .carousel-caption h2 {font-size: 14px;} .carousel-caption ul {font-size: 12px; line-height: 1.2em; padding: 5px 0 5px 20px} .carousel-caption .btn {font-size: 12px; padding: 4px 15px;}}
-@media (max-width: 480px) {.page {color :transparent; white-space:nowrap; overflow:hidden;}.carousel-caption{top: 10px;} .carousel-caption ul {font-size: 12px; line-height: 1.1em; padding: 4px 0 4px 20px} .carousel-caption h2 {font-size: 12px; margin: 0} .carousel-caption .btn {font-size: 12px; padding: 2px 6px;}.carousel-inner>.item>img, .carousel-inner>.item>a>img {min-height: 100px}}
+@media (max-width: 480px) {.page {color :transparent; white-space:nowrap; overflow:hidden;}.carousel-caption{top: 10px;} .carousel-caption ul {font-size: 12px; line-height: 1.1em; padding: 4px 0 4px 20px} .carousel-caption h2 {font-size: 12px; margin: 0} .carousel-caption .btn {font-size: 12px; padding: 2px 6px;}.carousel-inner>.item>img, .carousel-inner>.item>a>img {min-height: 100px} #footer {text-align: center; padding: 15px;}}
 
 /* go2top */
 #go2top {position: fixed;font-size: 20px; color: #999; bottom: 80px; right: -40px; width: 40px; line-height: 40px; text-align: center; background-color: #eee; border-radius: 4px; border: 1px solid #ccc; box-shadow: inset 0 1px 1px rgba(255,255,255,0.5),inset 0 -1px 1px rgba(0,0,0,0.1); text-shadow:1px 1px 0px #fff; display: none;}
@@ -457,18 +457,6 @@ a:hover,a:active{color: #1ABC9C;}
 #headNav .caret{border-top-color: #f1f1f1; border-bottom-color: #f1f1f1;}
 #headNav .dropdown-menu a {display: block;background-color: #fff;color: #333;}
 #headNav nav > a:hover, #msgBox:hover{background-color: #1abc9c; color: #fff; text-decoration: none; -webkit-transition:background 0.5s; -moz-transition:background 0.5s; -o-transition:background 0.5s; transition:background 0.5s;}
-
-/* search bar */
-#searchbar {position: relative; max-width: inherit;}
-#searchbar > form {position: absolute; bottom: -51px; right: 8px; z-index: 1001; max-width: 200px;}
-#searchbar .form-control {border-radius: 4px 0 0 4px; padding: 3px 8px; height: 32px; border-color: #2C3E50}
-#searchbar .btn {border-radius: 0 4px 4px 0; padding: 3px 8px; height: 32px; border: none;}
-@media (max-width: 767px)
-{
-  #searchbar {position: absolute; left: 15px; top: 1px;}
-  #searchbar > form {position: static;}
-}
-@media (max-width: 480px) {#searchbar {max-width: 90px}}
 
 /* navbar settings.*/
 #navbar{background: #2C3E50;border-radius: 6px;}
@@ -868,11 +856,7 @@ a
     color: @link-color;
     text-decoration: @link-decoration;
 }
-a:visited
-{
-    color: @link-visited-color;
-}
-a:hover, a:visited:hover
+a:hover
 {
     color: @link-hover-color;
     text-decoration: @link-hover-decoration;

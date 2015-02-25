@@ -1129,8 +1129,7 @@ a.tag-link {
   display: table-cell;
   vertical-align: middle;
 }
-#headNav,
-#searchbar {
+#headNav {
   right: 15px;
 }
 #headNav .login-msg,
@@ -1438,9 +1437,6 @@ a.tag-link {
     text-align: right;
     padding: 0 10px;
   }
-  #searchbar {
-    left: 15px;
-  }
   #headTitle {
     position: absolute;
     z-index: 10010;
@@ -1529,6 +1525,10 @@ a.tag-link {
   .carousel-inner>.item>img,
   .carousel-inner>.item>a>img {
     min-height: 100px;
+  }
+  #footer {
+    text-align: center;
+    padding: 15px;
   }
 }
 #go2top {
@@ -1883,8 +1883,7 @@ a {
 a:visited {
   color: #0D3D88;
 }
-a:hover,
-a:visited:hover {
+a:hover {
   color: #347AEB;
   text-decoration: none;
 }

@@ -2,8 +2,8 @@
 /**
  * The router file of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     LGPL
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     chanzhiEPS
  * @version     $Id$
@@ -33,7 +33,10 @@ if(!isset($config->installed) or !$config->installed) die(header('location: inst
 $common = $app->loadCommon();
 
 /* Check site status. */
-if(isset($app->config->site->status) and $app->config->site->status == 'pause') exit;
+if(isset($app->config->site->status) and $app->config->site->status == 'pause')
+{
+    die("<div style='text-align:center'>" . htmlspecialchars_decode($app->config->site->pauseTip) . '</div>');
+}
 
 $app->parseRequest();
 $common->checkPriv();

@@ -23,7 +23,9 @@
       </td>
       <td id='<?php echo $thread->id;?>' class='thread-wrapper'>
         <div class='thread-content article-content'><?php echo $thread->content;?></div>
+        <?php if(!empty($thread->files)):?>
         <div class='article-files'><?php $this->thread->printFiles($thread, $this->thread->canManage($board->id, $thread->author));?></div>
+        <?php endif;?>
       </td>
     </tr>
   </table>
@@ -54,7 +56,14 @@
             </ul>
           </span>
           <?php
-          echo html::a(inlink('switchstatus',   "threadID=$thread->id"), '<i class="icon-eye-close"></i> ' . $lang->thread->hide, "class='switcher'");
+          if($thread->hidden)
+          {
+              echo html::a(inlink('switchstatus',   "threadID=$thread->id"), '<i class="icon-eye-open"></i> ' . $lang->thread->show, "class='jsoner'");
+          }
+          else
+          {
+              echo html::a(inlink('switchstatus',   "threadID=$thread->id"), '<i class="icon-eye-close"></i> ' . $lang->thread->hide, "class='jsoner'");
+          }
           echo html::a(inlink('delete', "threadID=$thread->id"), '<i class="icon-trash"></i> ' . $lang->delete, "class='deleter'");
           echo html::a(inlink('transfer',   "threadID=$thread->id"), '<i class="icon-location-arrow"></i> ' . $lang->thread->transfer, "data-toggle='modal'");
           ?>

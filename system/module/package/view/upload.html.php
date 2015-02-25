@@ -2,8 +2,8 @@
 /**
  * The upload view file of package module of ChanZhiEPS.
  *
- * @copyright   Copyright 2009-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@xirangit.com>
  * @package     package
  * @version     $Id$
@@ -22,7 +22,7 @@
 <?php else:?>
 <div>
   <?php printf($lang->setOkFile, $canMange['okFile']);?>
-  <div class='text-right'><?php echo html::a($this->inlink('upload'), $lang->confirm, "class='btn btn-primary loadInModal'");?></div>
+  <div class='text-right'><?php echo html::a($this->inlink('upload'), $lang->confirm, "class='btn btn-primary okFile'");?></div>
 </div>
 <?php endif;?>
 <?php include '../../common/view/footer.modal.html.php';?>

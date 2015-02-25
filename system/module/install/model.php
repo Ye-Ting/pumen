@@ -2,8 +2,8 @@
 /**
  * The model file of install module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     install
  * @version     $Id$
@@ -150,6 +150,14 @@ class installModel extends model
 
         /* Connect db. */
         $this->setDBParam();
+
+        if(strpos($this->config->db->name, '.') !== false)
+        {
+            $return->result = 'fail';
+            $return->error  = $this->lang->install->errorDBName;
+            return $return;
+        }
+
         $this->dbh = $this->connectDB();
         if(!is_object($this->dbh))
         {
@@ -220,6 +228,7 @@ class installModel extends model
             $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $dbh->exec("SET NAMES {$this->config->db->encoding}");
+            $dbh->exec("SET @@sql_mode= ''");
             return $dbh;
         }
         catch (PDOException $exception)
@@ -236,8 +245,36 @@ class installModel extends model
      */
     public function dbExists()
     {
-        $sql = "SHOW DATABASES like '{$this->config->db->name}'";
-        return $this->dbh->query($sql)->fetch();
+        try
+        {
+            $sql = "SHOW DATABASES like '{$this->config->db->name}'";
+            return $this->dbh->query($sql)->fetch();
+        }
+        catch (PDOException $e) 
+        {
+            $errorInfo = $e->errorInfo;
+            $errorCode = $errorInfo[1];
+            $message   = $e->getMessage();
+            /* If access denied for user. */
+            if($errorCode == 1227)
+            {
+                try
+                {
+                    $sql = "USE {$this->config->db->name}";
+                    return $this->dbh->query($sql);
+                }
+                catch (PDOException $e) 
+                {
+                    $errorInfo = $e->errorInfo;
+                    $errorCode = $errorInfo[1];
+                    $message   = $e->getMessage();
+                    /* If unknown database. */
+                    if($errorCode == 1049) return false;
+                    $this->app->triggerError($message . "<p>The sql is: $sql</p>", __FILE__, __LINE__, $exit = true);
+                }
+            }
+            $this->app->triggerError($message . "<p>The sql is: $sql</p>", __FILE__, __LINE__, $exit = true);
+        }
     }
 
     /**

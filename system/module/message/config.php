@@ -1,4 +1,6 @@
 <?php
+if(!isset($this->config->site->modules) or strpos($this->config->site->modules, 'message') === false) die();
+
 $config->message = new stdclass();
 $config->message->types = 'comment,message,notice,reply';
 $config->message->recPerPage = 10;

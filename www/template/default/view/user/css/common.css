@@ -1,3 +1,5 @@
 .user-control-nav{margin-bottom: 20px;}
+.break-all {word-wrap: break-word; word-break: break-all;}
+.pager {margin:0px;}
 @media (max-width: 480px) { .hidden-xxs {display: none} .page {font-size: 12px}}
 @media (max-width: 400px) { .hidden-xxxs {display: none}}

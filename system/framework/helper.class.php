@@ -197,13 +197,51 @@ class helper
             foreach($extFiles as $extFile)
             {
                 $extLines = trim(file_get_contents($extFile));
-                if(strpos($extLines, '<?php') !== false) $extLines = ltrim($extLines, '<?php');
-                if(strpos($extLines, '?>')    !== false) $extLines = rtrim($extLines, '?>');
+                if(strpos($extLines, '<?php') !== false) $extLines = ltrim($extLines, "<?php");
+                if(strpos($extLines, "?>")    !== false) $extLines = rtrim($extLines, "?>");
                 $modelLines .= $extLines . "\n";
             }
 
             /* Create the merged model file. */
             $modelLines .= "}";
+
+            /* Unset conflic function for model. */
+            preg_match_all('/.* function\s+(\w+)\s*\(.*\)[^\{]*\{/Ui', $modelLines, $functions);
+            $functions = $functions[1];
+            $conflics  = array_count_values($functions);
+            foreach($conflics as $functionName => $count)
+            {
+                if($count <= 1) unset($conflics[$functionName]);
+            }
+            if($conflics)
+            {
+                $modelLines = explode("\n", $modelLines);
+                $startDel   = false;
+                foreach($modelLines as $line => $code)
+                {
+                    if($startDel and preg_match('/.* function\s+(\w+)\s*\(.*\)/Ui', $code)) $startDel = false;
+                    if($startDel)
+                    {
+                        unset($modelLines[$line]);
+                    }
+                    else
+                    {
+                        foreach($conflics as $functionName => $count)
+                        {
+                            if($count <= 1) continue;
+                            if(preg_match('/.* function\s+' . $functionName . '\s*\(.*\)/Ui', $code)) 
+                            {
+                                $conflics[$functionName] = $count - 1;
+                                $startDel = true;
+                                unset($modelLines[$line]);
+                            }
+                        }
+                    }
+                }
+
+                $modelLines = join("\n", $modelLines);
+            }
+
             file_put_contents($mergedModelFile, $modelLines);
 
             return $mergedModelFile;
@@ -374,13 +412,13 @@ class helper
         $items = explode('.', $domain);
         $postfix = str_replace($items[0] . '.', '', $domain);
         if(strpos($config->domainPostfix, "|$postfix|") !== false) return $items[0];
-        
+
         $postfix = str_replace($items[0] . '.' . $items[1] . '.', '', $domain);
         if(strpos($config->domainPostfix, "|$postfix|") !== false) return $items[1];
 
         return $siteCode = $domain;
     }
-    
+
     /**
      * Enhanced substr version: support multibyte languages like Chinese.
      *
@@ -403,11 +441,11 @@ class helper
      *
      * return bool
      */
-     public static function inSeoMode()
-     {
+    public static function inSeoMode()
+    {
         global $config;
         return $config->requestType == 'PATH_INFO' and $config->seoMode;
-     }
+    }
 
     /**
      * Check is ajax request 
@@ -597,4 +635,26 @@ function checkCurlSSL()
 {
     $version = curl_version();
     return ($version['features'] & CURL_VERSION_SSL);
+}
+
+/**
+ * When the $var has the $key, return it, esle result one default value.
+ * 
+ * @param  array|object    $var 
+ * @param  string|int      $key 
+ * @param  mixed           $valueWhenNone     value when the key not exits.
+ * @param  mixed           $valueWhenExists   value when the key exits.
+ * @access public
+ * @return void
+ */
+function zget($var, $key, $valueWhenNone = '', $valueWhenExists = '')
+{
+    $var = (array)$var;
+    if(isset($var[$key]))
+    {
+        if($valueWhenExists) return $valueWhenExists;
+        return $var[$key];
+    }
+    if($valueWhenNone) return $valueWhenNone;
+    return $key;
 }

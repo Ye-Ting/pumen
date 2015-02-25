@@ -1,1 +1,1 @@
-<?php include 'articletree.html.php'?>
+    <?php include TPL_ROOT . 'block/articletree.html.php'?>

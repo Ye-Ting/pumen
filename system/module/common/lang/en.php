@@ -2,8 +2,8 @@
 /**
  * The common simplified chinese file of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     chanzhiEPS
  * @version     $Id$
@@ -23,7 +23,7 @@ $lang->back2Top   = 'T<br/>O<br/>P';
 /* Lang items for xirang. */
 $lang->chanzhiEPS     = 'chanzhiEPS';
 $lang->chanzhiEPSx    = 'Chanzhi';
-$lang->agreement      = "I Agree to the <a href='http://api.chanzhi.org/goto.php?item=license' target='_blank'>chanzhiEPS Service Agreement</a>, <span class='text-danger'>and promise to keep the logo, link of chanzhiEPS.</span>";
+$lang->agreement      = "I Agree to the <a href='http://zpl.pub/page/zplv11.html' target='_blank'>Z PUBLIC LICENSE 1.1</a>, <span class='text-danger'>and promise to keep the logo, link of ChanZhi.</span>";
 $lang->poweredBy      = " <span id='poweredBy'><a href='http://www.chanzhi.org/?v=%s' target='_blank' title='%s'>%s</a></span>";
 $lang->poweredByAdmin = "<span id='poweredBy'>Powered by <a href='http://www.chanzhi.org/?v=%s' target='_blank' title='%s'>ChanzhiEPS %s</a></span>";
 $lang->newVersion     = "Notice: ChanzhiEPS has been upgraded to version: <span id='version'></span> at <span id='releaseDate'></span>. <a href='' target='_blank' id='upgradeLink'>DownLoad Now</a>";
@@ -162,7 +162,7 @@ $lang->ui->menu = new stdclass();
 $lang->ui->menu->logo    = 'Logo|ui|setlogo|';
 $lang->ui->menu->favicon = 'Favicon|ui|setfavicon|';
 $lang->ui->menu->slide   = array('link' => 'Slide|slide|admin|',  'alias' => 'create,edit');
-$lang->ui->menu->theme   = 'Theme|ui|settheme|';
+$lang->ui->menu->theme   = 'Theme|ui|settemplate|';
 $lang->ui->menu->admin   = array('link' => 'Blocks|block|admin|', 'alias' => 'create,edit');
 $lang->ui->menu->pages   = array('link' => 'Layout|block|pages|', 'alias' => 'setregion');
 $lang->ui->menu->styles  = 'Base Style|ui|setbasestyle|';

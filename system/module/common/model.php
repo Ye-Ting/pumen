@@ -2,8 +2,8 @@
 /**
  * The model file of common module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     common
  * @version     $Id$
@@ -111,6 +111,8 @@ class commonModel extends model
      */
     public static function hasPriv($module, $method)
     {
+        $module = strtolower($module);
+        $method = strtolower($method);
         global $app, $config;
 
         if(RUN_MODE == 'admin')
@@ -122,7 +124,18 @@ class commonModel extends model
         if(!commonModel::isAvailable($module)) return false;
 
         $rights  = $app->user->rights;
-        if(isset($rights[strtolower($module)][strtolower($method)])) return true;
+        if(isset($rights[$module][$method])) return true;
+
+        /* Check rights one more time to enable new created rights.*/
+        if($app->user->account == 'guest')
+        { 
+            if(isset($config->rights->guest[$module][$method])) return true;
+        }
+        else
+        {
+            if(isset($config->rights->guest[$module][$method]) or isset($config->rights->member[$module][$method])) return true;
+        }
+
         return false;
     }
 

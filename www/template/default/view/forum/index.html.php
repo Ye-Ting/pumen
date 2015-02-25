@@ -1,5 +1,5 @@
 <?php include TPL_ROOT . 'common/header.html.php'; ?>
-<?php $this->block->printRegion($layouts, 'forum_index', 'top');?>
+<div class='row focus-top' data-default-grid='4'><?php $this->block->printRegion($layouts, 'forum_index', 'top', true);?></div>
 <?php $common->printPositionBar($this->app->getModuleName());?>
 <div id='boards'>
 <?php foreach($boards as $parentBoard):?>

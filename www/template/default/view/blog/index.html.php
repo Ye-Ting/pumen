@@ -2,8 +2,8 @@
 /**
  * The index view file of blog module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Xiying Guan <guanxiying@xirangit.com>
  * @package     blog
  * @version     $Id$
@@ -11,7 +11,7 @@
  */
 ?>
 <?php 
-include './header.html.php';
+include TPL_ROOT . 'blog/header.html.php';
 include TPL_ROOT . 'common/treeview.html.php';
 if(isset($category)) $path = array_keys($category->pathNames);
 if(!empty($path))         js::set('path',  $path);
@@ -51,4 +51,4 @@ if(!empty($category)) echo $common->printPositionBar($category, '', '', $root);
   </div>
   <div class='col-md-3 col-side'><side class='page-side'><div class='panel-pure panel'><?php echo html::a(helper::createLink('rss', 'index', '?type=blog', '', 'xml'), "<i class='icon-rss text-warning'></i> " . $lang->blog->subscribe, "target='_blank' class='btn btn-lg btn-block'"); ?></div><?php $this->block->printRegion($layouts, 'blog_index', 'side');?></side></div>
 </div>
-<?php include './footer.html.php';?>
+<?php include TPL_ROOT . 'blog/footer.html.php';?>

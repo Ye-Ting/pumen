@@ -2,15 +2,15 @@
 /**
  * The browse view file of product of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@xirangit.com>
  * @package     product
  * @version     $Id$
  * @link        http://www.chanzhi.org
  */
 ?>
-<?php
+<?php 
 include TPL_ROOT . 'common/header.html.php';
 $path = isset($category->pathNames) ? array_keys($category->pathNames) : array(0);
 js::set('path', $path);
@@ -27,20 +27,20 @@ include TPL_ROOT . 'common/treeview.html.php';
         <?php foreach($products as $product):?>
         <div class='col-sm-4 col-xs-6'>
           <div class='card'>
-            <?php
-            if(empty($product->image))
+            <?php 
+            if(empty($product->image)) 
             {
-                echo html::a(inlink('view', "id=$product->id", "category={$category->alias}&name=$product->alias"), '<div class="media-placeholder" data-id="' . $product->id . '">' . $product->name . '</div>', "class='media-wrapper'");
+                echo html::a(inlink('view', "id=$product->id", "category={$product->category->alias}&name=$product->alias"), '<div class="media-placeholder" data-id="' . $product->id . '">' . $product->name . '</div>', "class='media-wrapper'");
             }
             else
             {
                 $title = $product->image->primary->title ? $product->image->primary->title : $product->name;
-                echo html::a(inlink('view', "id=$product->id", "category={$category->alias}&name=$product->alias"), html::image($product->image->primary->middleURL, "title='{$title}' alt='{$product->name}'"), "class='media-wrapper'");
+                echo html::a(inlink('view', "id=$product->id", "category={$product->category->alias}&name=$product->alias"), html::image($product->image->primary->middleURL, "title='{$title}' alt='{$product->name}'"), "class='media-wrapper'");
             }
             ?>
-            <!--<div class='card-info'><span class="label label-success label-badge" title='<?php echo $lang->product->views;?>'><?php echo $product->views;?></span></div>-->
+            <div class='card-info'><span class="label label-success label-badge" title='<?php echo $lang->product->views;?>'><?php echo $product->views;?></span></div>
             <div class='card-heading'>
-              <?php echo html::a(inlink('view', "id={$product->id}", "category={$category->alias}&name=$product->alias"), '<strong>' . $product->name . '</strong>');?>
+              <?php echo html::a(inlink('view', "id={$product->id}", "category={$product->category->alias}&name=$product->alias"), '<strong>' . $product->name . '</strong>');?>
               <span class='card-content text-latin'>
               <?php
               if($product->promotion != 0)
