@@ -2,8 +2,8 @@
 /**
  * The package module zh-tw file of ChanZhiEPS.
  *
- * @copyright   Copyright 2009-2013 青島息壤網絡信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青島易軟天創網絡科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@xirangit.com>
  * @package     package
  * @version     $Id$
@@ -95,7 +95,7 @@ $lang->package->errorGetModules              = '從www.chanzhi.org獲得插件�
 $lang->package->errorGetPackages             = '從www.chanzhi.org獲得插件失敗。可能是因為網絡方面的原因，您可以到 <a href="http://www.chanzhi.org/extesion" target="_blank" class="alert-link">www.chanzhi.org</a> 手工下載插件，然後上傳安裝。';
 $lang->package->errorDownloadPathNotFound    = '插件下載存儲路徑<strong>%s</strong>不存在。<br />linux下面請執行命令：<strong>mkdir -p %s</strong>來修正。';
 $lang->package->errorDownloadPathNotWritable = '插件下載存儲路徑<strong>%s</strong>不可寫。<br />linux下面請執行命令：<strong>sudo chmod 777 %s</strong>來修正。';
-$lang->package->errorPackageFileExists       = '下載路徑已經有一個名為的<strong>%s</strong>附件。<h3>重新%s，<a href="%s" class="alert-link loadInModal">請點擊此連結</a></h3>';
+$lang->package->errorPackageFileExists       = '下載路徑已經有一個名為的<strong>%s</strong>附件。<a href="%s" class="btn btn-primary loadInModal">重新%s</a>';
 $lang->package->errorDownloadFailed          = '下載失敗，請重新下載。如果多次重試還不行，請嘗試手工下載，然後通過上傳功能上傳。';
 $lang->package->errorMd5Checking             = '下載檔案不完整，請重新下載。如果多次重試還不行，請嘗試手工下載，然後通過上傳功能上傳。';
 $lang->package->errorExtracted               = '包檔案<strong> %s </strong>解壓縮失敗，可能不是一個有效的zip檔案。錯誤信息如下：<br />%s';

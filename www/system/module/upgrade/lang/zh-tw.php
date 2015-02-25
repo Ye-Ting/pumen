@@ -2,8 +2,8 @@
 /**
  * The upgrade module zh-tw file of ZenTaoPMS.
  *
- * @copyright   Copyright 2013-2013 青島息壤網絡信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license 
+ * @copyright   Copyright 2009-2015 青島易軟天創網絡科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     upgrade
  * @version     $$
@@ -21,6 +21,7 @@ $lang->upgrade->selectVersion = '確認升級之前的版本';
 $lang->upgrade->confirm       = '確認要執行的SQL語句';
 $lang->upgrade->execute       = '確認執行';
 $lang->upgrade->next          = '下一步';
+$lang->upgrade->updateLicense = '蟬知 4.0 已更換授權協議至 Z PUBLIC LICENSE(ZPL) 1.1。';
 
 $lang->upgrade->backupData = <<<EOT
 <pre>
@@ -54,3 +55,4 @@ $lang->upgrade->fromVersions['3_0']      = '3.0';
 $lang->upgrade->fromVersions['3_0_1']    = '3.0.1';
 $lang->upgrade->fromVersions['3_1']      = '3.1';
 $lang->upgrade->fromVersions['3_2']      = '3.2';
+$lang->upgrade->fromVersions['3_3']      = '3.3';

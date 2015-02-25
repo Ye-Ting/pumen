@@ -2,8 +2,8 @@
 /**
  * The html template file of index method of install module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     chanzhiEPS
  * @version     $Id: index.html.php 867 2010-06-17 09:32:58Z wwccss $
@@ -18,11 +18,8 @@
       <div><?php echo $lang->install->desc;?></div>
     </div>
     <div class='modal-footer'>
-      <div class='text-left mgb-10'>
-        <label class='checkbox-inline'><input type='checkbox' id='agree' checked='checked' /><?php echo $lang->agreement;?></label>
-      </div>
       <div class='input-group'>
-      <?php echo html::a($this->createLink('install', 'step1'), $lang->install->start, "class='btn btn-primary btn-install'");?>
+      <?php echo html::a($this->createLink('install', 'step0'), $lang->install->start, "class='btn btn-primary btn-install'");?>
       </div>
     </div>
   </div>

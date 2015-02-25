@@ -2,8 +2,8 @@
 /**
  * The model file of book module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Tingting Dai <daitingting@xirangit.com>
  * @package     book
  * @version     $Id$
@@ -169,6 +169,33 @@ class bookModel extends model
     }
 
     /**
+     * Get article id list of string.
+     * 
+     * @param  int    $nodeID 
+     * @access public
+     * @return string
+     */
+    public function getArticleIDs($nodeID)
+    {
+        $node = $this->getNodeByID($nodeID);
+        if(!$node) return '';
+
+        if($node->type == 'article') return $node->id;
+
+        $ids      = '';
+        $children = $this->getChildren($nodeID);
+        if(!$children) return '';
+
+        foreach($children as $child)
+        {
+            $result = $this->getArticleIDs($child->id);
+            if(strlen($result) == 0) continue;
+            $ids .= $result . ',';
+        }
+        return trim($ids, ',');
+    }
+
+    /**
      * Compute the serial number for all nodes of a book.
      * 
      * @param  string    $path 
@@ -263,21 +290,15 @@ class bookModel extends model
      */
     public function getPrevAndNext($current)
     {
-       $prev = $this->dao->select('id, title, alias')->from(TABLE_BOOK)
-           ->where('parent')->eq($current->parent)
-           ->andWhere('type')->eq('article')
-           ->andWhere('`order`')->lt($current->order)
-           ->orderBy('`order` desc')
-           ->limit(1)
-           ->fetch();
+        $idList = explode(',', $this->getArticleIDs($current->book->id));
+        $idListFlip = array_flip($idList);
 
-       $next = $this->dao->select('id, title, alias')->from(TABLE_BOOK)
-           ->where('parent')->eq($current->parent)
-           ->andWhere('type')->eq('article')
-           ->andWhere('`order`')->gt($current->order)
-           ->orderBy('`order`')
-           ->limit(1)
-           ->fetch();
+        $currentOrder = isset($idListFlip[$current->id]) ? $idListFlip[$current->id] : -1;
+        $prev = isset($idList[$currentOrder - 1]) ? $idList[$currentOrder - 1] : 0;
+        $next = isset($idList[$currentOrder + 1]) ? $idList[$currentOrder + 1] : 0;
+
+        $prev = $this->dao->select('id, title, alias')->from(TABLE_BOOK)->where('id')->eq($prev)->fetch();
+        $next = $this->dao->select('id, title, alias')->from(TABLE_BOOK)->where('id')->eq($next)->fetch();
 
         return array('prev' => $prev, 'next' => $next);
     }

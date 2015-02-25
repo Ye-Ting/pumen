@@ -2,8 +2,8 @@
 /**
  * The install module English file of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     install
  * @version     $Id$
@@ -18,6 +18,7 @@ $lang->install->error   = 'Error ';
 $lang->install->start            = 'Start install';
 $lang->install->keepInstalling   = 'Keep install this version';
 $lang->install->welcome          = 'Welcome to use chanzhiEPS.';
+$lang->install->license          = 'License';
 $lang->install->desc             = <<<EOT
 <p>Using chanzhiEPS, you can do</p>
 <blockquote>
@@ -71,6 +72,7 @@ $lang->install->dbPrefix   = 'Table prefix';
 $lang->install->createDB   = 'Auto create database';
 $lang->install->clearDB    = 'Clear data if database exists.';
 
+$lang->install->errorDBName        = "'.' are not allowed in database name";
 $lang->install->errorConnectDB     = 'Database connect failed.';
 $lang->install->errorCreateDB      = 'Database create failed.';
 $lang->install->errorDBExists      = 'Database alread exists, to continue install, check the clear db box.';

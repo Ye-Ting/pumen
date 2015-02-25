@@ -2,8 +2,8 @@
 /**
  * The model file of article module of chanzhiEPS.
  *
- * @copyright   Copyright 2013-2013 青岛息壤网络信息有限公司 (QingDao XiRang Network Infomation Co,LTD www.xirangit.com)
- * @license     http://api.chanzhi.org/goto.php?item=license
+ * @copyright   Copyright 2009-2015 青岛易软天创网络科技有限公司(QingDao Nature Easy Soft Network Technology Co,LTD, www.cnezsoft.com)
+ * @license     ZPL (http://zpl.pub/page/zplv11.html)
  * @author      Chunsheng Wang <chunsheng@cnezsoft.com>
  * @package     article
  * @version     $Id$
@@ -116,11 +116,11 @@ class articleModel extends model
             ->from(TABLE_RELATION)->alias('t1')
             ->leftJoin(TABLE_CATEGORY)->alias('t2')->on('t1.category = t2.id')
             ->where('t2.type')->eq($type)
-            ->beginIf($categories)->andWhere('t1.category')->in($categories)->fi()
             ->fetchGroup('article', 'id');
 
         /* Assign categories to it's article. */
         foreach($articles as $article) $article->categories = isset($categories[$article->id]) ? $categories[$article->id] : array();
+        foreach($articles as $article) $article->category   = current($article->categories);
 
         /* Get images for these articles. */
         $images = $this->loadModel('file')->getByObject($type, array_keys($articles), $isImage = true);
